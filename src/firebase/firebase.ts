@@ -10,7 +10,8 @@ const firebaseConfig = {
     projectId: "gtv-tvolution",
     storageBucket: "gtv-tvolution.appspot.com",
     messagingSenderId: "291450058043",
-    appId: "1:291450058043:web:8683b11f7a41c90e4cb31e"
+    appId: "1:291450058043:web:8683b11f7a41c90e4cb31e",
+    databaseURL:'https://gtv-tvolution-default-rtdb.asia-southeast1.firebasedatabase.app'
 };
 
 // Initialize Firebase
