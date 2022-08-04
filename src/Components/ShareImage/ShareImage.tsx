@@ -130,6 +130,7 @@ export const ShareImage: NextPage = () => {
 			</div>
 			<div className={styles.publish__btn__container}>
 				<button className={styles.publish__btn} onClick={shareImage}>
+					<img src={'/share_icon.png'} alt='share-icon' />
 					Publish your story
 				</button>
 			</div>
