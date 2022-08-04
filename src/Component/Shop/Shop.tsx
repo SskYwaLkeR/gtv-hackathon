@@ -43,6 +43,13 @@ export const Shop: React.FC<ShopProps> = ({
         {products.map((product) => (
           <div className={s.product} key={product.productName}>
             <img className={s.product_img} src={product.thumbnailUrl} alt="" />
+            <img
+              className={s.source}
+              src={
+                product.source === "AMAZON" ? "/amazon.png" : "/flipkart.png"
+              }
+              alt=""
+            />
             <div className={s.product_desc}>
               <h4 className={s.name}>{product.productName}</h4>
               {product.price && (
