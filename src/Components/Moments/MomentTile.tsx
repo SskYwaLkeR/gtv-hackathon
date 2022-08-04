@@ -10,6 +10,7 @@ type Props = {
   timestamp: string;
   height: number;
   width: number;
+  onclick: (img: string) => void;
 };
 
 export const MomentTile: NextPage<Props> = ({
@@ -18,9 +19,11 @@ export const MomentTile: NextPage<Props> = ({
   width,
   imgtitle,
   timestamp,
+  onclick,
 }) => {
   return (
     <div
+      onClick={() => onclick(imgsrc)}
       className={styles.moment_tile_container}
       style={{
         backgroundImage: `url(${imgsrc})`,

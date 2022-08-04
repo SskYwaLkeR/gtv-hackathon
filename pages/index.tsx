@@ -26,6 +26,7 @@ const Index = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedImg, setSelectedImg] = useState("");
   const toggleDrawer = (img: string) => {
+    console.log(img);
     setIsOpen((prevState) => !prevState);
     setSelectedImg(img);
   };
@@ -43,11 +44,7 @@ const Index = () => {
         showback={false}
         showProfile={true}
       />
-      <Moments
-        title="Recent Moment"
-        imgsrc="/Content.png"
-        toggleDrawer={toggleDrawer}
-      />
+      <Moments title="Recent Moment" toggleDrawer={toggleDrawer} />
       <MomentsCategories
         onclick={toggleDrawer}
         title="Thriller Moments"

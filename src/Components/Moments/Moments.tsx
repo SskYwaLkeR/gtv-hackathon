@@ -8,11 +8,10 @@ import { database } from "../../firebase";
 
 type Props = {
   title: string;
-  imgsrc: string;
   toggleDrawer: (img: string) => void;
 };
 
-export const Moments: NextPage<Props> = ({ title, toggleDrawer, imgsrc }) => {
+export const Moments: NextPage<Props> = ({ title, toggleDrawer }) => {
   const [moments, setMoments] = useState<MomentType[]>([]);
 
   const readMomentsData = () => {
@@ -28,13 +27,14 @@ export const Moments: NextPage<Props> = ({ title, toggleDrawer, imgsrc }) => {
     readMomentsData();
   }, []);
   return (
-    <div onClick={() => toggleDrawer(imgsrc)}>
+    <div>
       <div className={styles.sub__heading}>{title}</div>
       <div className={styles.wrapper}>
         {Object.entries(moments)?.map(([key, value]) => (
           <MomentTile
+            onclick={toggleDrawer}
             key={key}
-            imgsrc={value.momentUrl ?? imgsrc}
+            imgsrc={value.momentUrl}
             height={205}
             width={348}
             timestamp="Today"
