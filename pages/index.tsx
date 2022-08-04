@@ -1,14 +1,7 @@
-import type { NextPage } from "next";
-import { ShoppingPage } from "../src/Component/ShoppingPage";
-import { Footer } from "../src/Component/Footer";
+import { ShareImage } from '../src/Components/ShareImage';
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <ShoppingPage />
-      <Footer />
-    </div>
-  );
+const HomePage = () => {
+	return <ShareImage />;
 };
 
-export default Home;
+export default HomePage;

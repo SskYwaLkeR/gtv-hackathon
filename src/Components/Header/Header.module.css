@@ -1,0 +1,29 @@
+.heading {
+	font-family: 'Poppins';
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 0;
+}
+
+.heading__hr {
+	background: #ffffff26;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	/* width: 328px; */
+	margin: 0px 16px;
+}
+
+.left > img {
+	margin-left: 16px;
+}
+
+.left > span {
+	padding-left: 16px;
+}
+
+.right > img {
+	height: 36px;
+	width: 36px;
+	margin-right: 16px;
+}

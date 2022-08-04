@@ -1,0 +1,104 @@
+.container {
+	position: relative;
+	width: 100%;
+	height: 200px;
+}
+
+.sub__heading {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 21px;
+	/* identical to box height */
+	margin-left: 16px;
+	color: #ffffff;
+	padding: 16px 0px 8px;
+	opacity: 0.8;
+}
+
+.publish__btn {
+	font-family: 'Poppins';
+	background-color: #1e1e1e;
+	color: white;
+	outline: none;
+	border: none;
+}
+
+.publish__btn__container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.share__img__container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.landscape {
+	background: #ffffff;
+	border-radius: 10px;
+	height: 44px;
+	width: 44px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.landscape__inside {
+	height: 16px;
+	width: 28px;
+	background-color: black;
+	border-radius: 10px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.landscape__inside__dot {
+	height: 4px;
+	width: 4px;
+	background-color: white;
+	border-radius: 50%;
+	margin-right: 6px;
+}
+
+.potrait {
+	margin-right: 20px;
+	background: #ffffff;
+	border-radius: 10px;
+	height: 44px;
+	width: 44px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.potrait__inside {
+	height: 28px;
+	width: 16px;
+	background-color: black;
+	border-radius: 10px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+}
+
+.potrait__inside__dot {
+	height: 4px;
+	width: 4px;
+	background-color: white;
+	border-radius: 50%;
+	margin-bottom: 6px;
+}
+
+.orientation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+}
