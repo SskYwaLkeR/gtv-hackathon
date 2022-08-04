@@ -4,6 +4,7 @@ type NavItem = {
   icon: string;
   isActive: boolean;
   link: string;
+  activeIcon: string;
 };
 
 export const NAV_ITEM = [
@@ -12,14 +13,16 @@ export const NAV_ITEM = [
     label: "Moments",
     icon: "/Camera.png",
     isActive: false,
-    link: "/moments",
+    link: "/",
+    activeIcon: "/camera_active.png",
   },
   {
     id: 1,
     label: "Shop",
-    icon: "/bag.png",
+    icon: "/shop_bag.png",
     isActive: false,
     link: "/shop",
+    activeIcon: "/bag.png",
   },
   {
     id: 1,
@@ -27,6 +30,7 @@ export const NAV_ITEM = [
     icon: "/bulb.png",
     isActive: false,
     link: "/explore",
+    activeIcon: "/bulb_active.png",
   },
   {
     id: 1,
@@ -34,5 +38,6 @@ export const NAV_ITEM = [
     icon: "/confetti.png",
     isActive: false,
     link: "/lockscreen",
+    activeIcon: "/confetti.png",
   },
 ];

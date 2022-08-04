@@ -4,7 +4,6 @@
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 21px;
-	/* identical to box height */
 	margin-left: 16px;
 	color: #ffffff;
 	padding: 16px 0px 8px;
@@ -12,7 +11,7 @@
 }
 
 .moment_tile_container {
-	box-sizing: border-box;
+	margin-left: 16px;
 	background: linear-gradient(
 		180deg,
 		rgba(29, 29, 29, 0) 58.89%,
@@ -53,17 +52,18 @@
 
 .imgtitle {
 	font-family: 'Poppins';
+	font-weight: 600;
 	font-size: 12px;
 	line-height: 18px;
-	color: #ffffff;
+	color: #FFFFFF;
 }
 
 .imgtimestamp {
-	color: #ffffff;
 	font-family: 'Poppins';
 	font-weight: 500;
 	font-size: 10px;
 	line-height: 15px;
+	color: #FFFFFF;
 	opacity: 0.7;
 	margin-top: 4px;
 }

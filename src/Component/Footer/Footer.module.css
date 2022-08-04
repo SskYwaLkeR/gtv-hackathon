@@ -35,3 +35,11 @@
     text-align: center;
     color: #FFFFFF;
 }
+
+.active_label {
+    background: linear-gradient(122.62deg, #FF7EDB 0.12%, #D171FF 100.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
