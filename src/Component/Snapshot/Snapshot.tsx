@@ -2,7 +2,7 @@ import { onValue, ref, set } from "firebase/database";
 import { database } from "../../firebase";
 import { useEffect, useState } from "react";
 
-type Moments = {
+export type Moments = {
   title: string;
   momentUrl: string;
   timestamp: string;
