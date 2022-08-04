@@ -19,6 +19,7 @@ export const ShareImage: NextPage = () => {
   const router = useRouter();
 
   const showCroppedImage = React.useCallback(async () => {
+    if (!croppedImage) return;
     try {
       const croppedImage = await getCroppedImg(
         `${router.query.img}`,
