@@ -1,7 +1,7 @@
 import { ShopProps } from "../Component/Shop/Shop";
 
 export const MY_BAG: ShopProps = {
-  title: "Your Bag",
+  title: "In Demand",
   iconUrl: "/bag.png",
   colorType: "STATIC",
   products: [

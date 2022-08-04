@@ -26,6 +26,9 @@ export const MomentTile: NextPage<Props> = ({
         backgroundImage: `url(${imgsrc})`,
         width,
         height,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
       }}
     >
       <div

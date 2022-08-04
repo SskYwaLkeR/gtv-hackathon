@@ -1,5 +1,5 @@
 import s from "./Lockscreen.module.css";
-import { onValue, ref, set } from "firebase/database";
+import { onValue, push, ref, set } from "firebase/database";
 import { database } from "../../firebase";
 import { useEffect, useState } from "react";
 
@@ -8,24 +8,32 @@ export type Moments = {
   momentUrl: string;
   timestamp: string;
   source: string;
-  id: string;
 };
 
 const date = new Date();
 
 export const Lockscreen = () => {
-  const [moments, setMoments] = useState<Moments>();
+  const [moments, setMoments] = useState({});
+
+  const getLastMoment = () => {
+    // @ts-ignore
+    return moments[Object.keys(moments)[Object.keys(moments).length - 1]];
+  };
 
   const writeMomentsData = (data: Moments) => {
+    return;
     const { title, timestamp, momentUrl, source } = data;
-    set(ref(database, "moments"), {
-      id: "abc-123-xyz",
+    const postMomentRef = ref(database, "moments");
+    const newMoment = push(postMomentRef);
+    set(newMoment, {
       title,
       momentUrl,
       timestamp,
       source,
     });
   };
+
+  const lastMoment = getLastMoment();
 
   const readMomentsData = () => {
     const momentsRef = ref(database, "moments");
@@ -35,6 +43,14 @@ export const Lockscreen = () => {
       setMoments(data);
     });
   };
+
+  // writeMomentsData({
+  //   title: "Lucifer",
+  //   source: "NETFLIX",
+  //   momentUrl:
+  //       "https://images.unsplash.com/photo-1521418517596-093782862837?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80",
+  //   timestamp: String(date.getTime()),
+  // });
 
   useEffect(() => {
     readMomentsData();
@@ -53,10 +69,15 @@ export const Lockscreen = () => {
       </p>
       <div className={s.widget_container}>
         <img className={s.widget1} src={"/widget1.png"} alt="" />
-        {moments && (
+        {lastMoment && (
           <div
             className={s.moment}
-            style={{ backgroundImage: `url(${moments.momentUrl})` }}
+            style={{
+              backgroundImage: `url(${lastMoment.momentUrl})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           >
             <div className={s.footer}>
               <img className={s.icon} src="/camera.png" alt="" />
