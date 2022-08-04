@@ -22,7 +22,7 @@ export const ShareImage: NextPage = () => {
 	const showCroppedImage = React.useCallback(async () => {
 		try {
 			const croppedImage = await getCroppedImg(
-				dogImg,
+				'/test.gif',
 				croppedAreaPixels,
 				rotation
 			);
@@ -59,12 +59,12 @@ export const ShareImage: NextPage = () => {
 
 	return (
 		<div>
-			<Header heading='Create Story' showback={true} />
+			<Header heading='Create Story' showback={true} showProfile={false} />
 			<div>
 				<div className={styles.sub__heading}>Setup the frame</div>
 				<div className={styles.container}>
 					<Cropper
-						image={dogImg}
+						image={'/test.gif'}
 						crop={crop}
 						rotation={rotation}
 						zoom={zoom}

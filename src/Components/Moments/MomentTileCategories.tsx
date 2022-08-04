@@ -28,6 +28,7 @@ export const MomentTileCategories: NextPage<Props> = ({
 				height,
 				margin: '10px 15px',
 				// margin: 'auto',
+				backgroundSize: 'cover',
 			}}
 		>
 			<div

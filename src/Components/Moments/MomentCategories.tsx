@@ -6,9 +6,10 @@ import { MomentTileCategories } from './MomentTileCategories';
 
 type Props = {
 	title: string;
+	images?: any[];
 };
 
-export const MomentsCategories: NextPage<Props> = ({ title }) => {
+export const MomentsCategories: NextPage<Props> = ({ title, images }) => {
 	return (
 		<div>
 			<div
@@ -25,20 +26,16 @@ export const MomentsCategories: NextPage<Props> = ({ title }) => {
 					overflow: 'scroll',
 				}}
 			>
-				<MomentTileCategories
-					imgsrc={'/Content.png'}
-					height={135}
-					width={240}
-					timestamp='Today'
-					imgtitle='Big Bang Theory'
-				/>
-				<MomentTileCategories
-					imgsrc={'/Content.png'}
-					height={135}
-					width={240}
-					timestamp='Today'
-					imgtitle='Big Bang Theory'
-				/>
+				{images?.map((image) => (
+					<MomentTileCategories
+						imgsrc={image.src}
+						height={135}
+						width={240}
+						timestamp={image.timestamp}
+						imgtitle='Witcher'
+						key={image}
+					/>
+				))}
 			</div>
 		</div>
 	);

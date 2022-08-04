@@ -4,6 +4,22 @@ import { Moments } from '../src/Components/Moments';
 import { MomentsCategories } from '../src/Components/Moments/MomentCategories';
 
 const Activecorner = () => {
+	const thriller = [
+		{
+			src: '/witcher.png',
+			timestamp: 'Today',
+		},
+		{
+			src: '/witcher_logo.png',
+			timestamp: '2 days ago',
+		},
+	];
+	const emotional = [
+		{
+			src: '/witcher_person.png',
+			timestamp: 'Today',
+		},
+	];
 	return (
 		<div
 			style={{
@@ -12,12 +28,16 @@ const Activecorner = () => {
 				background: '#1e1e1e',
 			}}
 		>
-			<Header heading='Glance Active Corner' showback={true} />
+			<Header
+				heading='Glance Active Corner'
+				showback={false}
+				showProfile={true}
+			/>
 			<Moments title='Recent Moment' />
 
-			<MomentsCategories title='Thriller Moments' />
+			<MomentsCategories title='Thriller Moments' images={thriller} />
 
-			<MomentsCategories title='Emotional Moments' />
+			<MomentsCategories title='Emotional Moments' images={emotional} />
 		</div>
 	);
 };
