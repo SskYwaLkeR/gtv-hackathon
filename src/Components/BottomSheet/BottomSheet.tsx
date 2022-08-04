@@ -78,7 +78,7 @@ export const BottomSheet: NextPage<Props> = ({
                 className={styles["bottom-sheet__icon"]}
               />
               <span className={styles["bottom-sheet__text"]}>
-                Download Video
+                Download Media
               </span>
             </a>
           </div>
