@@ -59,7 +59,7 @@ export const ShareImage: NextPage = () => {
 
 	return (
 		<div>
-			<Header heading='Create Story' />
+			<Header heading='Create Story' showback={true} />
 			<div>
 				<div className={styles.sub__heading}>Setup the frame</div>
 				<div className={styles.container}>
