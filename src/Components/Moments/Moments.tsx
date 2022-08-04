@@ -6,14 +6,16 @@ import { MomentTile } from './MomentTile';
 
 type Props = {
 	title: string;
+	imgsrc: string;
+	toggleDrawer: any;
 };
 
-export const Moments: NextPage<Props> = ({ title }) => {
+export const Moments: NextPage<Props> = ({ title, toggleDrawer, imgsrc }) => {
 	return (
-		<div>
+		<div onClick={toggleDrawer}>
 			<div className={styles.sub__heading}>{title}</div>
 			<MomentTile
-				imgsrc={'/Content.png'}
+				imgsrc={imgsrc}
 				height={205}
 				width={348}
 				timestamp='Today'
