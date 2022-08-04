@@ -33,6 +33,6 @@ export const NAV_ITEM = [
     label: "Watch Party",
     icon: "/confetti.png",
     isActive: false,
-    link: "watch-party",
+    link: "/lockscreen",
   },
 ];
