@@ -37,6 +37,7 @@ const Index = () => {
         height: "min-content",
         minHeight: "100%",
         background: "#1e1e1e",
+        paddingBottom: "70px",
       }}
     >
       <Header
