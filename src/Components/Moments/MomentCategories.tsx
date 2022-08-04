@@ -26,14 +26,14 @@ export const MomentsCategories: NextPage<Props> = ({ title, images }) => {
 					overflow: 'scroll',
 				}}
 			>
-				{images?.map((image) => (
+				{images?.map((image, index) => (
 					<MomentTileCategories
 						imgsrc={image.src}
 						height={135}
 						width={240}
 						timestamp={image.timestamp}
 						imgtitle='Witcher'
-						key={image}
+						key={`${image}${index}`}
 					/>
 				))}
 			</div>
