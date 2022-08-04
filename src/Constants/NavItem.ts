@@ -1,3 +1,11 @@
+type NavItem = {
+  id: number;
+  label: string;
+  icon: string;
+  isActive: boolean;
+  link: string;
+};
+
 export const NAV_ITEM = [
   {
     id: 1,
