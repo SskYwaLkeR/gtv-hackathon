@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ShoppingPage } from "../src/Component/ShoppingPage/ShoppingPage";
+import { ShoppingPage } from "../src/Component/ShoppingPage";
 
 const Home: NextPage = () => {
   return (
