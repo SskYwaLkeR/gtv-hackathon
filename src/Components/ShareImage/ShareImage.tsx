@@ -42,7 +42,8 @@ export const ShareImage: NextPage = () => {
   );
 
   const shareImage = async () => {
-    let blob = await fetch(croppedImage as string).then((r) => r.blob());
+    if (!croppedImage) return;
+    const blob = await fetch(croppedImage as string).then((r) => r.blob());
     const filesArray = [
       new File([blob], "shareablemedia.png", {
         type: blob.type,
@@ -52,7 +53,7 @@ export const ShareImage: NextPage = () => {
     const shareData = {
       files: filesArray,
     };
-    if (navigator.share) {
+    if (navigator?.share) {
       navigator.share(shareData);
     }
   };
