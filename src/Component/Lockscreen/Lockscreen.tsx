@@ -1,4 +1,5 @@
 import s from "./Lockscreen.module.css";
+import { useRouter } from "next/router";
 import { onValue, push, ref, set } from "firebase/database";
 import { database } from "../../firebase";
 import { useEffect, useState } from "react";
@@ -14,6 +15,7 @@ const date = new Date();
 
 export const Lockscreen = () => {
   const [moments, setMoments] = useState({});
+  const router = useRouter();
 
   const getLastMoment = () => {
     // @ts-ignore
@@ -78,6 +80,7 @@ export const Lockscreen = () => {
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
+            onClick={() => router.push("/")}
           >
             <div className={s.footer}>
               <img className={s.icon} src="/camera.png" alt="" />
