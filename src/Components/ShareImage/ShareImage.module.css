@@ -36,7 +36,6 @@
 }
 
 .publish__btn__container {
-	position: fixed;
 	bottom: 20px;
 	display: flex;
 	align-items: center;

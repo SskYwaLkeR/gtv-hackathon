@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BottomSheet } from "../src/Components/BottomSheet";
 import { Header } from "../src/Components/Header";
 import { Moments } from "../src/Components/Moments";
@@ -30,6 +30,11 @@ const Index = () => {
     setIsOpen((prevState) => !prevState);
     setSelectedImg(img);
   };
+
+  useEffect(() => {
+    return () => setIsOpen(false);
+  }, []);
+
   return (
     <div
       style={{

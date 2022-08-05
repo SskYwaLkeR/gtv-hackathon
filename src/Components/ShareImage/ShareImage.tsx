@@ -1,48 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect } from "react";
 import type { NextPage } from "next";
 import styles from "./ShareImage.module.css";
 import { useRouter } from "next/router";
 
 import getCroppedImg from "../CropImage/CropImage";
-import Cropper from "react-easy-crop";
+import Cropper, { Area } from "react-easy-crop";
 import { Header } from "../Header";
 
 export const ShareImage: NextPage = () => {
   const [crop, setCrop] = React.useState({ x: 0, y: 0 });
   const [rotation, setRotation] = React.useState(0);
   const [zoom, setZoom] = React.useState(1);
-  const [croppedAreaPixels, setCroppedAreaPixels] = React.useState(null);
+  const [croppedAreaPixels, setCroppedAreaPixels] = React.useState<Area>();
   const [croppedImage, setCroppedImage] = React.useState<Blob | string>();
   const [activeMode, setActiveMode] = React.useState<string>("potrait");
   const [aspectRatio, setAspectRatio] = React.useState(9 / 16);
   const router = useRouter();
 
   const showCroppedImage = React.useCallback(async () => {
-    if (!croppedImage) return;
     try {
-      const croppedImage = await getCroppedImg(
-        `${router.query.img}`,
-        croppedAreaPixels,
-        rotation
-      );
-      setCroppedImage(croppedImage);
+      if (router.query.img) {
+        const croppedImage = await getCroppedImg(
+          `${router.query.img}`,
+          croppedAreaPixels,
+          rotation
+        );
+        setCroppedImage(croppedImage);
+      }
     } catch (e) {
       console.error(e);
     }
-  }, [croppedAreaPixels, rotation]);
+  }, [croppedAreaPixels, rotation, router.query.img]);
 
   const onCropComplete = React.useCallback(
     (croppedArea: any, croppedAreaPixels: any) => {
       setCroppedAreaPixels(croppedAreaPixels);
-      if (croppedAreaPixels) showCroppedImage();
-      console.log("***", croppedArea);
     },
-    [showCroppedImage]
+    [showCroppedImage, router.query.img]
   );
 
   const shareImage = async () => {
-    if (!croppedImage) return;
     const blob = await fetch(croppedImage as string).then((r) => r.blob());
     const filesArray = [
       new File([blob], "shareablemedia.png", {
@@ -53,10 +51,18 @@ export const ShareImage: NextPage = () => {
     const shareData = {
       files: filesArray,
     };
-    if (navigator?.share) {
-      navigator.share(shareData);
+    try {
+      await navigator.share(shareData);
+    } catch (e) {
+      console.log("error", e);
     }
   };
+
+  useEffect(() => {
+    if (croppedAreaPixels) {
+      showCroppedImage();
+    }
+  }, [croppedAreaPixels]);
 
   return (
     <div>
@@ -64,18 +70,19 @@ export const ShareImage: NextPage = () => {
       <div>
         <div className={styles.sub__heading}>Setup the frame</div>
         <div className={styles.container}>
-          <Cropper
-            image={router.query.img as string}
-            crop={crop}
-            rotation={rotation}
-            zoom={zoom}
-            aspect={aspectRatio}
-            onCropChange={setCrop}
-            onRotationChange={setRotation}
-            onCropComplete={onCropComplete}
-            onZoomChange={setZoom}
-            onCropAreaChange={showCroppedImage}
-          />
+          {router.query.img && (
+            <Cropper
+              image={router.query?.img as string}
+              crop={crop}
+              rotation={rotation}
+              zoom={zoom}
+              aspect={aspectRatio}
+              onCropChange={setCrop}
+              onRotationChange={setRotation}
+              onCropComplete={onCropComplete}
+              onZoomChange={setZoom}
+            />
+          )}
         </div>
       </div>
       <div className={styles.orientation}>
@@ -129,8 +136,8 @@ export const ShareImage: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className={styles.publish__btn__container}>
-        <button className={styles.publish__btn} onClick={shareImage}>
+      <div onClick={shareImage} className={styles.publish__btn__container}>
+        <button className={styles.publish__btn}>
           <img src={"/share_icon.png"} alt="share-icon" />
           Publish your story
         </button>
