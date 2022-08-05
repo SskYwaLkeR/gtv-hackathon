@@ -18,6 +18,7 @@ export const Lockscreen = () => {
   const router = useRouter();
 
   const getLastMoment = () => {
+    if (Object.keys(moments).length < 4) return null;
     // @ts-ignore
     return moments[Object.keys(moments)[Object.keys(moments).length - 1]];
   };
