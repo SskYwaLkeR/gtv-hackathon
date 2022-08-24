@@ -34,7 +34,7 @@ export const NAV_ITEM = [
   },
   {
     id: 1,
-    label: "Watch Party",
+    label: "Lockscreen",
     icon: "/confetti.png",
     isActive: false,
     link: "/lockscreen",
